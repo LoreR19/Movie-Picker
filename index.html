@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"> 
+    <title>Movie Picker</title>
+</head>
+
+ <!--Abschnitt Bild Filmstreifen-->
+
+<img src="images/Filmstreifen.png" alt="Filmstreifen" class="filmstrip">
+
+<body>
+    <header class="main-header">
+        <div class="color-palette">
+            <div class="color-box green"></div>
+            <div class="color-box blue"></div>
+            <div class="color-box yellow"></div>
+            <div class="color-box orange"></div>
+            <div class="color-box red"></div>
+        </div>
+        <button class="home-button" onclick="location.reload()">Home</button>
+    </header>
+ <div class="container">
+    <div id="Suche">  
+
+        <!--Abschnitt Überschriften-->
+        
+      <main>
+          <div class="title"> 
+              <H1>Movie-Picker</H1>
+          </div>
+          <div class="subtitle">
+              <h2>Welchen Film willst du sehen?</h2>
+          </div>
+      </main>
+
+        <!--Abschnitt Genre Buttons-->
+
+      <div class="genre-buttons">
+        <button class="genre drama" onclick="selectGenre(18, 'Drama', this)">Drama</button>
+        <button class="genre action" onclick="selectGenre(28, 'Action', this)">Action</button>
+        <button class="genre comedy" onclick="selectGenre(35, 'Komödie', this)">Komödie</button>
+        <button class="genre scifi" onclick="selectGenre(878, 'Sci-Fi', this)">Sci-Fi</button>
+        <button class="genre doku" onclick="selectGenre(99, 'Doku', this)">Doku</button>
+      </div>
+
+      <!-- Abschnitt Slider -->
+
+      <div class="centered-year-label">
+        <h1>In welches Jahr soll es gehen?</h1>
+      </div>
+
+      <div class="slider-section">
+        <div class="slider-container">
+          <div class="track" id="track"></div>
+          <input type="range" min="1960" max="2025" value="1960" step="1" id="slider" oninput="updateLabel()"/>          
+          <div class="thumb-label" id="thumb-label">1960</div>
+        </div>
+      </div>
+
+
+      <!--Abschnitt Dropdown-->
+      
+      <div class="dropdown" id="languageDropdown">
+        <div class="dropdown-toggle">
+          <span>Originalsprache</span>
+          <div class="dropdown-arrow"></div>
+        </div>
+        <div class="dropdown-menu">
+          <div data-value="en">Englisch</div>
+          <div data-value="de">Deutsch</div>
+          <div data-value="fr">Französisch</div>
+          <div data-value="es">Spanisch</div> 
+        </div>
+      </div>
+      <button class="shuffle-btn" id="search-button" onclick="fetchMovies()" disabled>Suche starten</button>
+    </div>
+
+
+  <div class="genretext" id="genreText"></div>
+  <div class="movies" id="movie-container"></div>
+  <button id="Shuffle" class="shuffle-btn2" onclick="fetchMovies()">Shuffle</button>
+</div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
